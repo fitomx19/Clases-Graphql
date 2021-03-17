@@ -1,5 +1,5 @@
 import {task} from './sample';
-
+import User from "../models/User";
 export const resolvers = {
     Query:{
         hello: () => {
@@ -29,6 +29,14 @@ export const resolvers = {
             //agregar input en el task
             console.log(task);
             return input;
+        },
+        async createUser(_, {input}){
+            //log input
+            const newUser =  User(input)
+            await newUser.save(); //haces la consulta y luego continuas
+            console.log(newUser);
+             return newUser;
         }
+
     }
 };

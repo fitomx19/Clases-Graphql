@@ -13,8 +13,15 @@ const typeDefs = `
         title: String!
         number: Int
     }
+    type Usuario {
+        _id: ID
+        nombre: String!
+        password: String!
+        edad: Int
+    }
     type Mutation {
         createTask(input: Taskinput): Task
+        createUser(input: UsuarioInput) : Usuario
     }
 
     input Taskinput{
@@ -22,6 +29,13 @@ const typeDefs = `
         title: String!
         number: Int
     }
+
+    input UsuarioInput{
+        nombre: String!
+        password: String!
+        edad: Int
+    }
+
 `;
 
 export default makeExecutableSchema({

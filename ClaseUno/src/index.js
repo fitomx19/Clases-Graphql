@@ -1,8 +1,11 @@
 import express from "express";
 import { graphqlHTTP} from "express-graphql";
 import schema from './schema';
+//añadi dos imports
+import {connect} from "../db/database";
 
 const app = express();
+connect();
 
 
 app.get('/', (req,res)=>{
@@ -16,4 +19,6 @@ app.use('/graphql', graphqlHTTP({
     schema: schema
 }));
 
-app.listen(3000, () => console.log('Servidor en el puerto 3000'));
+app.listen(5000, () => console.log('Servidor en el puerto 5000'));
+
+
