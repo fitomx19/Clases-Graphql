@@ -12,6 +12,9 @@ export const resolvers = {
         tasks(){
             return task
         },
+        async Users(){
+            return await User.find();
+        },
         search(root,args){
             var resultado = task.filter(r =>{
                 return r.number == args.number
@@ -36,6 +39,12 @@ export const resolvers = {
             await newUser.save(); //haces la consulta y luego continuas
             console.log(newUser);
              return newUser;
+        },
+        async deleteUser(_,{_id} ){
+            return await User.findByIdAndDelete(_id);
+        },
+        async updateUser(_, {_id,input}){
+            return await User.findByIdAndUpdate(_id, input, {new:true});
         }
 
     }

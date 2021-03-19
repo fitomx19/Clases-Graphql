@@ -7,6 +7,7 @@ const typeDefs = `
         saludar(nombre:String!) : String
         tasks: [Task]
         search(number: Int) : [Task]
+        Users:[Usuario]
     }
     type Task {
         _id: ID
@@ -22,6 +23,8 @@ const typeDefs = `
     type Mutation {
         createTask(input: Taskinput): Task
         createUser(input: UsuarioInput) : Usuario
+        deleteUser(_id:ID) : Usuario
+        updateUser(_id:ID, input: UsuarioInput) : Usuario
     }
 
     input Taskinput{
