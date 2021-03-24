@@ -8,13 +8,43 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hola mundo</h1>
-    <% for(var i=0; i < data.data.Users.length; i++) { %>
-        
-        <%= data.data.Users[i].nombre %>
-        <%= data.data.Users[i].password %>
-        <%= data.data.Users[i].edad %>
-   <% } %>
+   <div class="container">
+        <h1>Tabla De Usuarios</h1>
+        <small>Curso de GraphQL</small>
+   </div>
+  <div class="container">
+      <table class="table">
+          <tr>
+              <th scope="col">_id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Password</th> 
+              
+          </tr>
+
+          <% for(var i=0; i < data.data.Users.length; i++) { %>
+            <th scope="row">
+            <tr>
+                <td><%= data.data.Users[i]._id %></td>
+                <td><%= data.data.Users[i].nombre %></td>
+                <td><%= data.data.Users[i].password %></td>
+            </tr>
+        </th>
+       <% } %>
+      </table>
+
+  </div>
+  <div class="container">
+    <h3>Agregar Usuario</h3>  
+    <form action="/formulario" method="POST">
+        <label>Nombre Usuario</label>
+        <input class="form-control" type="text" name="nombre" placeholder="Inserte nombre Usuario">
+        <label>Constraseña Usuario</label>
+        <input class="form-control" type="text" name="password" placeholder="Inserte contraseña Usuario">
+      <div class="form-group">
+        <button class="btn btn-success form-control" value="Enviar!">Enviar</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
 
