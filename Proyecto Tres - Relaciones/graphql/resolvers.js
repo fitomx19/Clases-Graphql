@@ -15,6 +15,11 @@ export const resolvers = {
         },
         visita(){
             return visitas;
+        },
+        duenosBuscar(ctx,args,root,obj){
+            return duenos.filter(e =>{
+                    return e.id === args.id
+            })
         }
     },
     Pet:{

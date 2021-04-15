@@ -4,6 +4,7 @@ export const typeDefs = `
         mascotas: [Pet]
         duenos: [Dueno]
         visita: [Visita]
+        duenosBuscar(id: ID!):[Dueno]
     }
 
     type Pet {
@@ -15,7 +16,7 @@ export const typeDefs = `
 
     type Dueno{
         id: ID!
-        nombre: String
+        nombre: String!
         mascota: [Pet]
     }
 
